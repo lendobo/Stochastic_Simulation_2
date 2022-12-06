@@ -1,0 +1,99 @@
+FIFO_data: RESULTS ############################################################ 
+
+n1 vs n2
+Mean for 1 Servers: 17.84s. 95% CI: 12.492s
+Mean for 2 Servers: 8.921s. 95% CI: 7.684s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=1.2943966107379572e-135
+
+
+
+
+n1 vs n4
+Mean for 1 Servers: 17.84s. 95% CI: 12.492s
+Mean for 4 Servers: 4.143s. 95% CI: 3.227s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=5.968063114625562e-173
+
+
+
+
+n2 vs n4
+Mean for 2 Servers: 8.921s. 95% CI: 7.684s
+Mean for 4 Servers: 4.143s. 95% CI: 3.227s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=2.6735185240327767e-115
+
+
+
+
+Deterministic_data: RESULTS ############################################################ 
+
+n1 vs n2
+Mean for 1 Servers: 9.066s. 95% CI: 5.177s
+Mean for 2 Servers: 4.428s. 95% CI: 2.442s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=5.3756360588592196e-163
+
+
+
+
+n1 vs n4
+Mean for 1 Servers: 9.066s. 95% CI: 5.177s
+Mean for 4 Servers: 2.142s. 95% CI: 1.178s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=2.630788197484442e-193
+
+
+
+
+n2 vs n4
+Mean for 2 Servers: 4.428s. 95% CI: 2.442s
+Mean for 4 Servers: 2.142s. 95% CI: 1.178s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=1.4089570247783587e-169
+
+
+
+
+Longtail_data: RESULTS ############################################################ 
+
+n1 vs n2
+Mean for 1 Servers: 31.444s. 95% CI: 34.545s
+Mean for 2 Servers: 15.109s. 95% CI: 16.787s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=6.97048090516302e-86
+
+
+
+
+n1 vs n4
+Mean for 1 Servers: 31.444s. 95% CI: 34.545s
+Mean for 4 Servers: 7.324s. 95% CI: 8.839s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=7.664344368955886e-123
+
+
+
+
+n2 vs n4
+Mean for 2 Servers: 15.109s. 95% CI: 16.787s
+Mean for 4 Servers: 7.324s. 95% CI: 8.839s
+Server load: 0.95
+unequal variances
+Mean waiting time significantly different: p=1.2862287779939726e-83
+
+
+
+
+SJF RESULTS ##########################################################################
+Mean for 1 Servers: 4.984s. 95% CI: 2.753s
+Server load: 0.95
