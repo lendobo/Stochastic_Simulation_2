@@ -64,10 +64,10 @@ def welch(data1, data2, cl = 0.95, SJF_b=False):
 
 
 # Data shape: [n_serv, rho, sim_num] = [3, 10, 150] (Has already been averaged over customers)
-fifo_data = np.load('Data/waitingtimerho/MEAN_WAITS_rho_10_NSIM250_TrueFalseFalse.npy')
-SJF_data = np.load('Data/waitingtimerho/MEAN_WAITS_rho_10_NSIM250_FalseFalseFalse.npy')
-Det_data = np.load('Data/waitingtimerho/MEAN_WAITS_rho_10_NSIM250_TrueTrueFalse.npy')
-Longtail_data = np.load('Data/waitingtimerho/MEAN_WAITS_rho_10_NSIM250_TrueFalseTrue.npy')
+fifo_data = np.load('Data/MEAN_WAITS_rho_10_NSIM250_TrueFalseFalse.npy')
+SJF_data = np.load('Data/MEAN_WAITS_rho_10_NSIM250_FalseFalseFalse.npy')
+Det_data = np.load('Data/MEAN_WAITS_rho_10_NSIM250_TrueTrueFalse.npy')
+Longtail_data = np.load('Data/MEAN_WAITS_rho_10_NSIM250_TrueFalseTrue.npy')
 
 
 ######### DISTRIBUTION COMPARISON RUNS ###################################################
@@ -95,12 +95,12 @@ def performance_comp(data1, data2, n1, n2, rho_index, SJF_b=False):
     # Means, SDs and Confidence Intervals
     mean_a = np.mean(n_a)
     std_a = np.std(n_a)
-    CI_l, CI_h = norm.interval(confidence=0.95, loc=mean_a, scale=std_a)
+    CI_l, CI_h = norm.interval(alpha=0.95, loc=mean_a, scale=std_a)
     CI_a = CI_h - CI_l
 
     mean_b = np.mean(n_b)
     std_b = np.std(n_b)
-    CI_l, CI_h = norm.interval(confidence=0.95, loc=mean_b, scale=std_b)
+    CI_l, CI_h = norm.interval(alpha=0.95, loc=mean_b, scale=std_b)
     CI_b = CI_h - CI_l
 
     print(f'''Mean for {server_nums[n1]} Servers: {round(mean_a,3)}s. 95% CI: {round(CI_a,3)}s''') 

@@ -12,8 +12,7 @@ if not os.path.exists('Data'):
     os.makedirs('Data')
 if not os.path.exists('Figs'):
     os.makedirs('Figs')
-if not os.path.exists('Data/waitingtimerho'):
-    os.makedirs('Data/waitingtimerho')
+
 
 ##### Functions for generating simulations ########
 def sim(n_cust,rho_lo, rho_hi, num_sims=50, num_rho=15, n_serv=True, FIFO_b=True,Det_b=False, LongT_b=False):
@@ -71,7 +70,7 @@ def sim(n_cust,rho_lo, rho_hi, num_sims=50, num_rho=15, n_serv=True, FIFO_b=True
 
     # Saving files
     fileName = 'MEAN_WAITS_rho_' + str(num_rho) + '_NSIM' + str(num_sims) + '_' +str(FIFO_b)+str(Det_b) + str(LongT_b)
-    np.save('Data/waitingtimerho/'+fileName, cust_mean_wait)
+    np.save('Data/'+fileName, cust_mean_wait)
 
     
     return wait_times, serv_times
@@ -110,7 +109,7 @@ def plotter(rho_lo=0.5, rho_hi=0.95, num_reps=50, num_rho=15, save = False, show
     if FIFO_b == False:
         # FIFO Data for comparison
         file = 'MEAN_WAITS_rho_' + str(num_rho) + '_NSIM' + str(num_reps) + '_' + str(True)+str(Det_b) + str(LongT_b)
-        mean_wait = np.load('Data/waitingtimerho/'+file+'.npy')
+        mean_wait = np.load('Data/'+file+'.npy')
 
         # mean over the simulations
         simulation_means = np.mean(mean_wait, axis=2)
@@ -126,7 +125,7 @@ def plotter(rho_lo=0.5, rho_hi=0.95, num_reps=50, num_rho=15, save = False, show
 
         # SJF Data
         file = 'MEAN_WAITS_rho_' + str(num_rho) + '_NSIM' + str(num_reps) + '_' +str(FIFO_b)+str(Det_b) + str(LongT_b)
-        SJF_mean_wait = np.load('Data/waitingtimerho/'+file+'.npy')
+        SJF_mean_wait = np.load('Data/'+file+'.npy')
 
         # mean over the simulations
         SJF_sim_means = np.mean(SJF_mean_wait, axis=2) # prev dim = [n_serv,rho,sim_num] || new dim = [n_serv,rho]
@@ -147,7 +146,7 @@ def plotter(rho_lo=0.5, rho_hi=0.95, num_reps=50, num_rho=15, save = False, show
     else:
         #FIFO Data (Deterministic, Exponential and Hyperexponential service times)
         file = 'MEAN_WAITS_rho_' + str(num_rho) + '_NSIM' + str(num_reps) + '_' + str(FIFO_b)+str(Det_b) + str(LongT_b)
-        mean_wait = np.load('Data/waitingtimerho/'+file+'.npy')
+        mean_wait = np.load('Data/'+file+'.npy')
 
         # mean over the simulations
         simulation_means = np.mean(mean_wait, axis=2) # prev dim = [n_serv,rho,sim_num] || new dim = [n_serv,rho]
@@ -203,7 +202,7 @@ def all_plotter(rho_lo=0.5, rho_hi=0.95, num_reps=50, num_rho=15, save = False, 
 
     for i, type_q in enumerate(['TrueTrueFalse', 'TrueFalseFalse', 'TrueFalseTrue']):
         file_E = 'MEAN_WAITS_rho_' + str(num_rho) + '_NSIM' + str(num_reps) + '_' + type_q
-        mean_wait = np.load('Data/waitingtimerho/'+file_E+'.npy')
+        mean_wait = np.load('Data/'+file_E+'.npy')
         # mean over the simulations
         simulation_means = np.mean(mean_wait, axis=2) # prev dim = [n_serv,rho,sim_num] || new dim = [n_serv,rho]
         simulation_SDs = np.std(mean_wait, axis=2)
